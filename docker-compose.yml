@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  wordle-solver:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DEBUG=False
+    restart: unless-stopped
