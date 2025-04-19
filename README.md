@@ -82,6 +82,12 @@ Or use Docker Compose:
 docker-compose up -d
 ```
 
+Alternatively, you can pull the pre-built image from Docker Hub:
+```
+docker pull teleram/wordle-solver:latest
+docker run -p 5000:5000 teleram/wordle-solver:latest
+```
+
 ## License
 
 This project is open source and available under the MIT License.
