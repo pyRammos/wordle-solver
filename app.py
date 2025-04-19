@@ -243,4 +243,6 @@ def solve():
     })
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    # In production, debug should be False
+    debug_mode = os.environ.get('DEBUG', 'False').lower() == 'true'
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=debug_mode)

@@ -52,6 +52,8 @@ The application uses a dictionary of 5-letter English words. By default, it will
 
 ## Deployment
 
+### Traditional Deployment
+
 To deploy this application to a production server:
 
 1. Set up a web server (like Nginx or Apache)
@@ -59,6 +61,25 @@ To deploy this application to a production server:
 3. Run the application with Gunicorn:
 ```
 gunicorn -w 4 -b 127.0.0.1:8000 app:app
+```
+
+### Docker Deployment
+
+You can also run this application using Docker:
+
+1. Build the Docker image:
+```
+docker build -t wordle-solver .
+```
+
+2. Run the container:
+```
+docker run -p 5000:5000 wordle-solver
+```
+
+Or use Docker Compose:
+```
+docker-compose up -d
 ```
 
 ## License
