@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Wordle Solver</h1>
+        
+        <div class="instructions">
+            <p>Enter your Wordle guesses and mark the results:</p>
+            <ul>
+                <li><span class="correct-example">Green</span> - Letter is correct and in the right position</li>
+                <li><span class="present-example">Yellow</span> - Letter is in the word but in the wrong position</li>
+                <li><span class="absent-example">Gray</span> - Letter is not in the word</li>
+            </ul>
+            <p><strong>Click on each letter</strong> after entering your word to cycle through the colors.</p>
+            <p><strong>Click on any suggestion</strong> to use it as your next guess.</p>
+        </div>
+        
+        <div id="guesses-container">
+            <!-- Guesses will be added here -->
+            <div class="guess-row">
+                <div class="word-input">
+                    <input type="text" class="word" maxlength="5" placeholder="Enter 5-letter word">
+                </div>
+                <div class="result-input">
+                    <div class="letter-result" data-index="0">
+                        <div class="letter-display" tabindex="0"></div>
+                    </div>
+                    <div class="letter-result" data-index="1">
+                        <div class="letter-display" tabindex="0"></div>
+                    </div>
+                    <div class="letter-result" data-index="2">
+                        <div class="letter-display" tabindex="0"></div>
+                    </div>
+                    <div class="letter-result" data-index="3">
+                        <div class="letter-display" tabindex="0"></div>
+                    </div>
+                    <div class="letter-result" data-index="4">
+                        <div class="letter-display" tabindex="0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button id="add-guess" class="button">Add Another Guess</button>
+        <button id="solve" class="button primary">Solve</button>
+        
+        <div id="results" class="hidden">
+            <h2>Results</h2>
+            <p id="possible-count"></p>
+            
+            <div id="best-guess-container">
+                <h3>Best Next Guess:</h3>
+                <div id="best-guess" class="best-guess" title="Click to use this word as your next guess"></div>
+            </div>
+            
+            <div id="suggestions">
+                <h3>Other Possible Words:</h3>
+                <ul id="suggestions-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

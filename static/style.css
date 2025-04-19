@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.instructions {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.instructions ul {
+    padding-left: 20px;
+}
+
+.correct-example {
+    background-color: #6aaa64;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.present-example {
+    background-color: #c9b458;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.absent-example {
+    background-color: #787c7e;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.guess-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.word-input {
+    margin-bottom: 10px;
+}
+
+.word-input input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.result-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.letter-result {
+    width: 18%;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.letter-display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ddd;
+    border-radius: 4px;
+    cursor: pointer !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    transition: background-color 0.2s;
+    border: 2px solid transparent;
+}
+
+.letter-display:hover {
+    border-color: #333;
+}
+
+.letter-display.absent {
+    background-color: #787c7e;
+    color: white;
+}
+
+.letter-display.present {
+    background-color: #c9b458;
+    color: white;
+}
+
+.letter-display.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #e0e0e0;
+}
+
+.button.primary {
+    background-color: #538d4e;
+    color: white;
+}
+
+.button.primary:hover {
+    background-color: #467c42;
+}
+
+.hidden {
+    display: none;
+}
+
+#results {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+#best-guess-container {
+    margin-bottom: 20px;
+}
+
+.best-guess {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #538d4e;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.best-guess:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.best-guess:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#suggestions-list li {
+    padding: 8px 12px;
+    background-color: #eee;
+    border-radius: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#suggestions-list li:hover {
+    background-color: #ddd;
+    transform: translateY(-2px);
+}
+
+#suggestions-list li:active {
+    background-color: #ccc;
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .letter-display {
+        font-size: 18px;
+    }
+    
+    .best-guess {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+}
